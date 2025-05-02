@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontact | Nowa Natura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Merriweather+Sans:wght@300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./dist/css/style.min.css">
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="nav__container">
+
+        <div class="nav__title-box">
+            <img src="./dist/img/icons/new-nature-logo.min.webp" alt="kwiatek z kostką na łodydze" class="nav__logo">
+            <a href="./index.html" class="nav__title">Nowa Natura</a>
+        </div> 
+
+        <div class="nav__links">
+            <a href="./offers.html" class="nav__link">Oferty</a>
+            <a href="./index.html#questions" class="nav__link">Pytania</a>
+            <a href="./contact.html" class="nav__link">Kontakt</a>
+        </div>
+
+        <hr class="nav__hr">
+
+        <div class="nav__btns">
+            <button class="nav__btn nav__btn--sign-up btn-default">Zapisz się</button>
+            <button class="nav__btn nav__btn--login btn-default">Zaloguj się</button>
+        </div>
+
+    </div>
+</nav>
+
+<button class="hamburger hamburger--3dx" type="button">
+    <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+    </span>
+</button>
+    <main class="main">
+
+        <section class="section first-section-with-bigger-padding-from-large-screen contact">
+
+            <div class="contact__container wrapper">
+
+                <div class="contact__text-box">
+                    <h2 class="contact__title text-section-title">Skontaktuj się z nami</h2>
+                    <p class="contact__text text-medium">Skontaktuj się z nami</p>
+                </div>
+
+                <div class="contact__form-message form-message">
+                    <p class="contact__form-message-text form-message-text text-large">Wiadomość została wysłana</p>
+                </div>
+
+                <form class="contact__form">
+
+                    <div class="contact__form-row-box">
+
+                        <div class="contact__form-box form-box-for-input">
+                            <label for="input-name" class="contact__label text-xs">Imię</label>
+                            <input type="text" class="contact__input input-default input-name" id="input-name"
+                            placeholder="Twoje imię">
+                            <p class="contact__form-error text-xs error-for-inputs"></p>
+
+                        </div>
+
+                        <div class="contact__form-box form-box-for-input">
+                            <label for="input-surname" class="contact__label text-xs">Nazwisko</label>
+                            <input type="text" class="contact__input input-default input-surname" id="input-surname"
+                            placeholder="Twoje nazwisko">
+                            <p class="contact__form-error text-xs error-for-inputs"></p>
+                    
+                        </div>
+
+                    </div>
+
+                    <div class="contact__form-box form-box-for-input">
+                        <label for="input-email" class="contact__label text-xs">Email</label>
+                        <input type="email" class="contact__input input-default input-email" id="input-email"
+                            placeholder="Twój email">
+                        <p class="contact__form-error text-xs error-for-inputs"></p>
+
+                    </div>
+
+                    <div class="contact__form-box form-box-for-input">
+                        <label for="input-phone-number" class="contact__label text-xs">Numer telefonu</label>
+                        <input type="number" class="contact__input input-default input-phone-number" id="input-phone-number"
+                            placeholder="Twój numer telefonu">
+                        <p class="contact__form-error text-xs error-for-inputs"></p>
+
+                    </div>
+
+                    <div class="contact__form-box form-box-for-input">
+                        <label for="textarea-message" class="contact__label text-xs">Wiadomość</label>
+                        <textarea class="contact__textarea textarea-default textarea-message" id="textarea-message"
+                            placeholder="Twoja wiadomość"></textarea>
+                        <p class="contact__form-error text-xs error-for-inputs"></p>
+                    </div>
+                
+                    <button class="contact__form-btn btn-default btn-for-inputs">Wyślij</button>
+
+                </form>
+
+
+                <div class="contact__info-container">
+
+                    <div class="contact__info-box">
+                        <img class="contact__icon flat-icon" src="./dist/img/icons/place-on-map.min.webp"
+                            alt="znak wskazujący miejsce na mapie">
+                        <h3 class="contact__info-title text-large">
+                            Znajdź nas
+                        </h3>
+                        <p class="contact__info-text text-medium">
+                            Kraków ul. Poznańska 19a
+                        </p>
+                    </div>
+
+                    <div class="contact__info-box">
+                        <img class="contact__icon flat-icon" src="./dist/img/icons/mail.min.webp" alt="koperta">
+                        <h3 class="contact__info-title text-large">
+                            Zadzwoń
+                        </h3>
+                        <p class="contact__info-text text-medium">
+                            +48 901 212 991
+                        </p>
+                    </div>
+
+                    <div class="contact__info-box">
+                        <img class="contact__icon flat-icon" src="./dist/img/icons/phone-call.min.webp" alt="telefon">
+                        <h3 class="contact__info-title text-large">
+                            Napisz do nas
+                        </h3>
+                        <p class="contact__info-text text-medium">
+                            contact@newnature.pl
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="contact__map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7950.477829689048!2d16.988720778750206!3d51.12241723579501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1743265588589!5m2!1spl!2spl"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+
+    <div class="footer__container wrapper">
+
+        <div class="footer__links-box">
+
+            <div class="footer__links">
+                <p class="footer__links-heading text-medium">Nawigacja</p>
+                <a href="" class="footer__link text-small">Oferty</a>
+                <a href="" class="footer__link text-small">Historie</a>
+                <a href="" class="footer__link text-small">Blog</a>
+                <a href="" class="footer__link text-small">Aktualności</a>
+                <a href="" class="footer__link text-small">Sklep</a>
+            </div>
+
+            <div class="footer__links">
+                <p class="footer__links-heading text-medium">Informacje Prawne</p>
+                <a href="" class="footer__link text-small">Polityka Prywatności</a>
+                <a href="" class="footer__link text-small">Regulamin</a>
+                <a href="" class="footer__link text-small">Informacje Prawne</a>
+                <a href="" class="footer__link text-small">Pytania</a>
+                <a href="" class="footer__link text-small">Kontakt</a>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <p class="footer__copyright text-xs">© <span class="footer__year"></span> Nowa Natura</p>
+
+</footer>
+    <script src="./dist/js/script.min.js"></script>
+</body>
+
+</html>

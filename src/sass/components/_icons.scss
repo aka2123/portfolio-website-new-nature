@@ -1,0 +1,24 @@
+.arrow-down-icon, .small-icon{
+    height: 1em;
+    width: 1em;
+}
+.flat-icon {
+	width: 4em;
+	height: 4em;
+}
+.white-icon {
+    filter: invert(100%) brightness(200%);
+}
+.arrow-down-icon{
+    transition: transform .3s;
+}
+.arrow-down-icon--rotated{
+transform: rotate(180deg);
+}
+
+@media (min-width: 576px){
+    .flat-icon {
+        width: 5em;
+        height: 5em;
+    }
+}

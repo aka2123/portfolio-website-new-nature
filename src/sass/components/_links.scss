@@ -1,0 +1,22 @@
+@use '../utils/variables' as *;
+
+.link-default {
+	position: relative;
+    text-transform: uppercase;
+    z-index: 0;
+}
+
+.link-default::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 10%;
+	width: 100%;
+	background-color: rgba($color: $additional-color, $alpha: 0.7);
+    z-index: -1;
+	transition: height 0.3s;
+}
+.link-default:hover::before {
+	height: 100%;
+}

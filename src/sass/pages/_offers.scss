@@ -1,0 +1,106 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/animations' as *;
+
+.offers-page {
+	.offers {
+		
+		&__page-intro {
+			position: relative;
+		}
+		&__page-intro-reward,
+		&__page-intro-rewards-box {
+			display: flex;
+		}
+		&__page-intro-rewards-box {
+			margin: 1em 0;
+			flex-wrap: wrap;
+		}
+		&__page-intro-reward {
+			margin: 1em 3em 1em 0;
+			align-items: center;
+		}
+
+		&__choose-bar {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 50%);
+			display: flex;
+			padding: 1em;
+			width: clamp(25em, 70vw, 45em);
+			box-shadow: 0 0.5em 1em $background-light-secondary-color;
+			background-color: $background-light-color;
+			border-radius: 2em;
+			z-index: 1;
+		}
+		&__choose-bar-btn {
+			padding: 0.6em 1.2em;
+			width: 50%;
+			border-radius: $border-radius-default;
+			background-color: transparent;
+			text-transform: capitalize;
+			transition: background-color 0.3s, color 0.3s;
+		}
+		&__choose-bar-btn:first-of-type {
+			margin-right: 0.5em;
+		}
+		&__choose-bar-btn--active {
+			background-color: $additional-color;
+			color: $background-dark-contrast-color;
+		}
+
+		&__card {
+			display: none;
+			transform: translateY(0);
+			background-color: $background-light-color;
+			color: $background-light-contrast-color;
+			border: 0.1em solid $background-dark-color;
+		}
+		
+		&__card--visible {
+			display: block;
+			animation: appear 1s ease forwards;
+		}
+		
+		&__card--hidden-overriding-visible-class {
+			display: none;
+		}
+
+		&__accordion-btn {
+			@include accordion;
+			@include accordion-btn;
+			margin-bottom: 2em;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.offers-page {
+		.offers {
+			&__container {
+				display: block;
+				max-width: inherit;
+			}
+
+			&__accordion,
+			&__cards {
+				display: flex;
+				gap: 2em;
+			}
+		
+			&__cards {
+				margin: 0 auto;
+				max-width: fit-content;
+			}
+		
+			&__card {
+				min-width: 30em;
+				max-width: 25vw ;
+			}
+			&__accordion-btn {
+				display: none;
+			}
+		}
+	}
+}

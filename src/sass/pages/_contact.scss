@@ -1,0 +1,118 @@
+@use '../utils/variables' as *;
+@use '../components/forms' as *;
+
+.contact {
+	&__form,
+	&__text-box {
+		margin: 0 auto;
+		width: clamp(10em, 100%, 40em);
+	}
+
+	&__text-box {
+		margin-bottom: 3em;
+	}
+	&__form-row-box,
+	&__form-btn,
+	&__map-box {
+		width: 100%;
+	}
+
+	&__form-row-box &__form-box {
+		margin-bottom: 0;
+		width: 45%;
+	}
+
+	&__form-row-box {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__info-container {
+		margin: 6em 0;
+	}
+	&__info-box {
+		margin: 3em auto;
+		padding: 2em;
+		width: 25em;
+	}
+	&__info-title {
+		margin: 1em 0 0.5em;
+	}
+	&__map-box,
+	&__info-box {
+		border-radius: $border-radius-default;
+		overflow: hidden;
+	}
+	&__map-box {
+		height: 40em;
+	}
+}
+
+@media (min-width: 768px) {
+	.contact {
+		&__container {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			grid-auto-flow: row;
+			gap: 0 3em;
+		}
+
+		&__text-box,
+		&__form {
+			grid-column: 1/2;
+		}
+
+		&__info-container {
+			margin: 0;
+			grid-column: 2/3;
+			grid-row: 1/3;
+		}
+		&__info-box:first-child {
+			margin-top: 0;
+		}
+		&__map-box {
+			margin-top: 6em;
+			grid-column: 1/-1;
+		}
+		&__icon {
+			width: 4em;
+			height: 4em;
+		}
+		&__form-message{
+			width: 40em;
+			height: 20em;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.contact {
+		&__container {
+			grid-template-columns: 1fr 1fr;
+			gap: 0 6em;
+		}
+		&__form,
+		&__text-box {
+			width: clamp(10em, 100%, 50em);
+		}
+		&__info-container {
+			margin-top: 6em;
+			display: flex;
+			grid-row: 3/4;
+			grid-column: 1/-1;
+		}
+		&__info-box:first-child {
+			margin-top: auto;
+		}
+		&__icon {
+			width: 5em;
+			height: 5em;
+		}
+		&__map-box {
+			margin-top: 0;
+			height: 100%;
+			grid-row: 1/3;
+			grid-column: 2/3;
+		}
+	}
+}

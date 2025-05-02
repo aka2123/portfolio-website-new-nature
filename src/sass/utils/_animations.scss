@@ -1,0 +1,53 @@
+@keyframes go-up {
+	0% {
+		transform: translateY(10%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes drop {
+	0% {
+		opacity: 0;
+		transform: translateY(-10%);
+	}
+	50% {
+		opacity: 0.75;
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes go-from-left-to-right {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+		transform-origin: top;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes expand-accordion {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

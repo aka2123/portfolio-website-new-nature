@@ -1,0 +1,37 @@
+@use '../utils/variables' as *;
+
+.footer {
+	width: 100%;
+	color: $background-light-contrast-color;
+	background-color: $background-light-secondary-color;
+
+	&__container,
+	&__links {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__container {
+		padding: 6em 2em;
+	}
+
+	&__links-box {
+		display: flex;
+        justify-content: center;
+        gap: clamp(2em, 10vw, 10em);
+	}
+
+	&__link {
+		display: inline-block;
+	}
+
+	&__links-heading {
+		margin-bottom: 1em;
+		font-weight: 600;
+	}
+
+	&__copyright {
+		padding: 1em;
+		text-align: center;
+	}
+}

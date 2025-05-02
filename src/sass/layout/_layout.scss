@@ -1,0 +1,457 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/animations' as *;
+@use '../components/forms' as *;
+@use '../components/links' as *;
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+.section,
+.header {
+	position: relative;
+	padding: 8em 2em;
+	width: 100%;
+}
+.light-section {
+	background-color: $background-light-color;
+	color: $background-light-contrast-color;
+}
+.light-secondary-section {
+	background-color: $background-light-secondary-color;
+	color: $background-light-contrast-color;
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #0000006c;
+}
+
+// SECTION INTRODUCTION
+
+.introduction {
+	&__box,
+	&__container,
+	&__list-item {
+		display: flex;
+	}
+	&__box {
+		margin-bottom: 1em;
+		align-items: center;
+	}
+	&__container {
+		flex-direction: column;
+		max-width: 40em;
+	}
+	&__img,
+	&__box-in-img {
+		border-radius: $border-radius-default;
+	}
+	&__img {
+		position: relative;
+		width: 100%;
+		max-width: 53em;
+		height: 25em;
+		max-height: 45em;
+		background-color: $ascend-color;
+		background-image: url('../img/ai-bubles-small.min.webp');
+		background-position: center;
+		background-size: cover;
+	}
+	&__box-in-img {
+		display: none;
+		position: absolute;
+		bottom: -1em;
+		right: -1em;
+		padding: 2em;
+		background-color: $background-dark-color;
+		color: $background-dark-contrast-color;
+	}
+	&__list {
+		list-style: none;
+	}
+	&__list-item {
+		align-items: center;
+	}
+	&__check-icon {
+		margin-right: 0.5em;
+	}
+	&__icon {
+		margin-right: 3em;
+		margin-bottom: 1em;
+	}
+	&__text {
+		display: block;
+		margin: 2em 0;
+		max-width: 30em;
+	}
+	&__text--show-from-small-devices {
+		display: none;
+	}
+}
+
+// SECTION ACHIEVEMNTS
+
+.achievements {
+	background-image: url('../img/ai-framework-small.min.webp');
+	background-position: center;
+
+	&__title {
+		margin-bottom: 4rem;
+	}
+	&__text {
+		text-align: center;
+	}
+	&__box {
+		width: 100%;
+		height: 100%;
+		border-radius: $border-radius-default;
+	}
+	&__box--main {
+		position: relative;
+		padding: 2em;
+		background-color: $background-light-color;
+		z-index: 1;
+	}
+	&__box--second {
+		justify-content: center;
+	}
+	&__achievement,
+	&__box--second {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 2em 0;
+	}
+	&__number {
+		margin: 0.5em 0 0.3em;
+		font-weight: bold;
+	}
+}
+
+// SECTION OFFERS
+
+.offers {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		max-width: 40em;
+	}
+
+	&__card {
+		margin-bottom: 4em;
+		padding: 2em;
+		border-radius: 1em;
+		background-color: $background-dark-secondary-color;
+		color: $background-dark-contrast-color;
+		transform: translateY(10%);
+	}
+	&__card--animated-when-first-seen {
+		animation: go-up 1s ease forwards;
+	}
+	&__card-title {
+		font-weight: bold;
+	}
+	&__btn {
+		margin: 1em 0 2em;
+	}
+	&__card-text {
+		margin-bottom: 1em;
+	}
+	&__list-item {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0.5em;
+	}
+	&__card-price-span {
+		font-weight: normal;
+		font-size: 1.8rem;
+	}
+	&__list {
+		list-style: none;
+	}
+
+	&__check-icon {
+		margin-right: 0.5em;
+	}
+	&__text--show-from-large-device {
+		display: none;
+	}
+	&__text:first-of-type {
+		margin-bottom: 1em;
+	}
+}
+
+// SECTION TESTIMONIALS
+
+.testimonials {
+	overflow-x: hidden;
+
+	&__testimonial,
+	&__container {
+		min-width: 24em;
+		width: 24em;
+	}
+
+	&__container {
+		margin: 0 auto;
+		display: flex;
+	}
+	&__testimonial {
+		position: relative;
+		margin-right: 10em;
+		padding: 3em 2em;
+		border-radius: $border-radius-default;
+		background-color: rgba($color: $background-dark-secondary-color, $alpha: 0.8);
+		color: $background-dark-contrast-color;
+		transform: scale(0.9);
+		transition: transform 0.3s;
+	}
+
+	&__testimonial--at-the-center {
+		background-color: $background-dark-secondary-color;
+		transform: scale(1);
+	}
+
+	&__text {
+		margin: 1em 0;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		translate: 0 -50%;
+		padding: 1em;
+		z-index: 1;
+		cursor: pointer;
+	}
+	&__arrow--left {
+		transform: translateX(-17em);
+		left: 50%;
+	}
+	&__arrow--right {
+		right: 50%;
+		transform: translateX(17em);
+	}
+
+	&__icon-star{
+		height: 2em;
+		width: 2em;
+	}
+}
+
+// SECTION QUESTIONS
+
+.questions {
+	&__accordion {
+		margin: 2em 0;
+		@include accordion;
+	}
+
+	&__question {
+		position: relative;
+		background-color: $background-light-color;
+		z-index: 1;
+		@include accordion-btn;
+	}
+	&__question-text {
+		text-align: left;
+	}
+	&__answer {
+		display: none;
+		padding: 3em 2.75em;
+		z-index: 0;
+		transform: translateY(-100%);
+	}
+	&__answer--visible {
+		display: block;
+		animation: expand-accordion 0.5s ease-out alternate forwards;
+	}
+}
+
+// SECTION NEWSLETTER
+
+.newsletter {
+	&__form,
+	&__container {
+		display: flex;
+		align-items: center;
+	}
+	&__container {
+		flex-direction: column;
+		justify-content: center;
+		padding: 2em;
+		height: 35em;
+	}
+	&__form,
+	&__text-box {
+		width: clamp(1em, 100%, 50em);
+	}
+
+	&__form-box,
+	&__btn {
+		width: 100%;
+	}
+
+	&__form-box {
+		display: inline-block;
+		margin-right: 1em;
+	}
+	&__error {
+		height: 21px;
+		// I used px, because then elements are equally aligned at the center
+	}
+	&__text {
+		margin: 1em 0;
+	}
+}
+
+@media (min-width: 420px) {
+	.testimonials {
+		&__testimonial,
+		&__container {
+			min-width: 26em;
+			width: 26em;
+		}
+		&__testimonial {
+			padding: 3em;
+		}
+		&__arrow--left {
+			transform: translateX(-20em);
+		}
+		&__arrow--right {
+			transform: translateX(20em);
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.section,
+	.header {
+		padding: 8em 3em;
+	}
+
+	.introduction {
+		&__img {
+			height: 35em;
+		}
+		&__box {
+			margin: 1em 0;
+		}
+	}
+	.achievements {
+		&__box--main {
+			margin: 0 auto;
+			max-width: 110em;
+		}
+		&__box--second {
+			flex-wrap: wrap;
+			flex-direction: row;
+			gap: 3em 5em;
+		}
+		&__achievement {
+			width: 40%;
+		}
+	}
+	.testimonials {
+		&__testimonial,
+		&__container {
+			min-width: 35em;
+			width: 35em;
+		}
+		&__arrow--left {
+			transform: translateX(-25em);
+		}
+		&__arrow--right {
+			transform: translateX(25em);
+		}
+	}
+
+	.newsletter {
+		&__form-box {
+			width: 60%;
+		}
+
+		&__btn {
+			width: auto;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.testimonials {
+		&__testimonial,
+		&__container {
+			min-width: 40em;
+			width: 40em;
+		}
+
+		&__arrow--left {
+			transform: translateX(-28.5em);
+		}
+		&__arrow--right {
+			transform: translateX(28.5em);
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.first-section-with-bigger-padding-from-large-screen {
+		padding-top: 14em;
+	}
+
+	.introduction {
+		&__container {
+			display: grid;
+			grid-template-columns: 1fr 0.85fr;
+			gap: 0 4em;
+			max-width: 1200px;
+		}
+
+		&__text {
+			margin: 1em 0 2em;
+		}
+
+		&__img {
+			height: auto;
+			grid-area: 1 / 2 / 6/ 3;
+			background-image: url('../img/ai-bubles-large.min.webp');
+		}
+		&__box-in-img {
+			display: block;
+		}
+	}
+
+	.achievements {
+		background-image: url('../img/ai-framework-large.min.webp');
+	}
+
+	.offers {
+		&__container {
+			flex-direction: row;
+			gap: 0 2em;
+			max-width: 1200px;
+		}
+		&__text-box,
+		&__card {
+			flex: 1;
+		}
+
+		&__card--highlighted {
+			margin: 3em 0 0 0;
+		}
+		&__text--show-from-large-device {
+			display: inline-block;
+		}
+		&__text--hide-from-large-device {
+			display: none;
+		}
+	}
+}

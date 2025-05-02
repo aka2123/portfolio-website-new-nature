@@ -1,0 +1,18 @@
+@use '../utils/variables' as *;
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+@mixin accordion {
+	box-shadow: 0 0.5em 1em $background-light-secondary-color;
+	border-radius: $border-radius-default;
+}
+@mixin accordion-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.5em 2em;
+	width: 100%;
+	background-color: $background-light-color;
+}

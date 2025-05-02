@@ -1,0 +1,46 @@
+@use '../utils/variables' as *;
+.header {
+	height: 100vh;
+	background-image: url('../img/cube-medium.min.webp');
+	background-size: cover;
+	background-position: center;
+	color: $background-dark-contrast-color;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		height: 100%;
+	}
+	&__title,
+	&__text,
+	&__btns {
+		z-index: 1;
+	}
+	&__title {
+		margin-bottom: 0.3em;
+	}
+	&__title--show-from-medium-devices{
+		display: none;
+	}
+	&__text {
+		margin-bottom: 2.5em;
+		max-width: 30em;
+	}
+	&__text--show-from-tablets {
+		display: none;
+	}
+	&__btns {
+		padding: 1em 0;
+	}
+	&__btn {
+		margin: 1em 1em 0 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.header__title--show-from-medium-devices{
+		display: inline-block;
+	}
+}

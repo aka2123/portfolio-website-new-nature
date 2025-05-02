@@ -1,0 +1,143 @@
+@use '../utils/variables' as *;
+@use '../utils/animations' as *;
+
+.nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100vh;
+	color: $background-dark-color;
+	background-color: $background-dark-contrast-color;
+	z-index: 10;
+	transform: translateX(100%);
+	transition: transform 0.3s;
+
+	&--visible {
+		transform: translateX(0);
+	}
+
+	&__container {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 4em;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__links,
+	&__title-box,
+	&__btns,
+	&__container {
+		display: flex;
+	}
+
+	&__title-box{
+		align-items: center;
+	}
+
+	&__title{
+		font-weight: bold;
+	}
+
+	&__links {
+		flex-direction: column;
+		margin: 4em 0;
+	}
+
+	&__link {
+		margin-bottom: 0.5em;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__hr {
+		margin-bottom: 4em;
+		width: 100%;
+		background-color: $background-light-secondary-color;
+	}
+
+	&__btn {
+		margin-right: 1em;
+	}
+
+	&__logo{
+		display: none;
+	}
+}
+
+.hamburger {
+	position: fixed;
+	top: 2em;
+	right: 2em;
+	z-index: 15;
+}
+
+
+@media (min-width: 576px) {
+	.nav {
+		width: clamp(25em, 70vw, 45em);
+	}
+}
+
+@media (min-width: 992px) {
+	.nav {
+		left: 0;
+		width: 100%;
+		height: auto;
+		color: $background-light-contrast-color;
+		background-color: rgba($color: $background-light-color, $alpha: 0.9);
+		transform: translateX(0);
+		transition: transform 0s;
+		&--animated {
+			animation: drop 0.5s alternate forwards;
+		}
+		&--on-special-sections {
+			position: absolute;
+			background-color: transparent;
+		}
+		&--on-special-sections-which-are-dark {
+			color: $background-dark-contrast-color;
+		}
+		&--on-special-sections-which-are-light {
+			color: $background-light-contrast-color;
+		}
+
+		&__container {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 2em 4em;
+			margin: 0 auto;
+			width: 100%;
+			max-width: 1200px;
+		}
+
+		&__hr {
+			display: none;
+		}
+		&__links,
+		& {
+			flex-direction: row;
+		}
+		&__links {
+			margin: 0;
+		}
+		&__link {
+			margin: 0 1em;
+		}
+		&__btn {
+			color: inherit;
+		}
+		&__logo{
+			display: inline-block;
+			margin-right: 1em;
+			width: 4em;
+			height: 4em;
+		}
+	}
+	.hamburger {
+		display: none;
+	}
+}
