@@ -13,7 +13,9 @@ const offersPage = document.querySelector('.offers-page')
 
 const accordionsBtns = document.querySelectorAll('.accordion-btn')
 const sectionsWhereNavChangesItsStyle = document.querySelectorAll('.section-where-nav-style-changes')
+
 const mediaQueryFor922pxAndUp = window.matchMedia('(min-width: 992px)')
+const mediaQueryNarrowerThan576px = window.matchMedia('(max-width: 576px)')
 
 const testimonialsSection = document.querySelector('.testimonials')
 const testimonials = document.querySelectorAll('.testimonials__testimonial')
@@ -62,8 +64,10 @@ const handleListenersForFunctionShowHideNav = e => {
 const showHideNavAndStyleHamburgerBtn = () => {
 	nav.classList.toggle('nav--visible')
 	hamburgerBtn.classList.toggle('is-active')
+	if (mediaQueryNarrowerThan576px.matches) {
+		document.body.classList.toggle('unable-to-scroll')
+	}
 }
-
 // achievements
 
 const increaseNumbersInAchievementSection = entry => {
@@ -159,6 +163,7 @@ const checkAtWhichSectionYouAre = () => {
 }
 
 const moveTestimonials = () => {
+	console.log('moved testimonials')
 	const exampleTestimonial = testimonials[0]
 	const testimonialWidth = exampleTestimonial.offsetWidth
 	const testimonialMarginValue = parseInt(window.getComputedStyle(exampleTestimonial).marginRight)
@@ -178,7 +183,6 @@ const decreaseVariableIndexOfCenteredTestimonial = () => {
 		indexOfCurrentCenteredTestimonial--
 	} else if (indexOfCurrentCenteredTestimonial === 0) {
 		indexOfCurrentCenteredTestimonial = indexOfLastTestimonial
-		console.log(indexOfCurrentCenteredTestimonial)
 	}
 	moveTestimonials()
 }
@@ -194,11 +198,17 @@ const increaseVariableIndexOfCenteredTestimonial = () => {
 const checkDragDirection = e => {
 	differenceOfStartEndX = startXOfDragOnTestimonials - endXOfDragOnTestimonials
 
-	if (differenceOfStartEndX > 50) {
-		increaseVariableIndexOfCenteredTestimonial()
-	} else if (differenceOfStartEndX < -50) {
-		decreaseVariableIndexOfCenteredTestimonial()
+	if (endXOfDragOnTestimonials !== 0) {
+		// Touch end is not specified when page is clicked not dragged.
+		// So difference would be always not === 0, despite no drag
+		if (differenceOfStartEndX > 50) {
+			increaseVariableIndexOfCenteredTestimonial()
+		} else if (differenceOfStartEndX < -50) {
+			decreaseVariableIndexOfCenteredTestimonial()
+		}
 	}
+	startXOfDragOnTestimonials = 0
+	endXOfDragOnTestimonials = 0
 }
 
 const addErrorToInput = (input, message) => {
@@ -296,7 +306,7 @@ const showPopup = e => {
 		popupOfThisForm.classList.add('form-message-active')
 		setTimeout(() => {
 			popupOfThisForm.classList.remove('form-message-active')
-			allInputsAndTextareasOfThisForm.forEach(inputOrTextarea => (inputOrTextarea.value = '')) 
+			allInputsAndTextareasOfThisForm.forEach(inputOrTextarea => (inputOrTextarea.value = ''))
 		}, 3000)
 	} else {
 		popupOfThisForm.classList.remove('form-message-active')
