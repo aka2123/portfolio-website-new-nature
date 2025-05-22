@@ -1,6 +1,7 @@
 const nav = document.querySelector('.nav')
 const navItems = document.querySelectorAll('.nav a, .nav button')
 const hamburgerBtn = document.querySelector('.hamburger')
+const darkElementsForHamburgerBtn = document.querySelectorAll('.dark-element-where-hamburger-btn-changes-to-white')
 
 const sectionAchievements = document.querySelector('.achievements')
 const achievementsNumbers = document.querySelectorAll('.achievements__number')
@@ -15,6 +16,7 @@ const accordionsBtns = document.querySelectorAll('.accordion-btn')
 const sectionsWhereNavChangesItsStyle = document.querySelectorAll('.section-where-nav-style-changes')
 
 const mediaQueryFor922pxAndUp = window.matchMedia('(min-width: 992px)')
+const mediaQueryNarrowerThan992px = window.matchMedia('(max-width: 992px)')
 const mediaQueryNarrowerThan576px = window.matchMedia('(max-width: 576px)')
 
 const testimonialsSection = document.querySelector('.testimonials')
@@ -61,12 +63,41 @@ const handleListenersForFunctionShowHideNav = e => {
 	}
 }
 
+const changeColorOfHamburgerBtn = () => {
+	const scrolledYDistance = window.scrollY
+	const hamburgerBtnDistanceFromTopOfTheScreenToTopOfBtn = hamburgerBtn.offsetTop + scrolledYDistance
+	const hamburgerBtnDistanceFromTopOfTheScreenToBottomOfBtn =
+		hamburgerBtn.offsetHeight + hamburgerBtnDistanceFromTopOfTheScreenToTopOfBtn
+
+	hamburgerBtn.classList.remove('hamburger--white-color-on-dark-background')
+
+	for (const darkEl of darkElementsForHamburgerBtn) {
+		const darkElDistanceFromTopOfTheScreenToTopOfEl = darkEl.getBoundingClientRect().top + window.scrollY
+		const darkElDistanceFromTopOfTheScreenToBottomOfEl = darkEl.offsetHeight + darkElDistanceFromTopOfTheScreenToTopOfEl
+
+		if (
+			hamburgerBtnDistanceFromTopOfTheScreenToTopOfBtn + 30 > darkElDistanceFromTopOfTheScreenToTopOfEl &&
+			hamburgerBtnDistanceFromTopOfTheScreenToBottomOfBtn - 30  < darkElDistanceFromTopOfTheScreenToBottomOfEl
+		) {
+			hamburgerBtn.classList.add('hamburger--white-color-on-dark-background')
+		}
+	}
+	hideWhiteStyleOfHamburgerBtn()
+}
+
 const showHideNavAndStyleHamburgerBtn = () => {
 	nav.classList.toggle('nav--visible')
 	hamburgerBtn.classList.toggle('is-active')
 	if (mediaQueryNarrowerThan576px.matches) {
 		document.body.classList.toggle('unable-to-scroll')
 	}
+	changeColorOfHamburgerBtn()
+	hideWhiteStyleOfHamburgerBtn()
+}
+const hideWhiteStyleOfHamburgerBtn = () => {
+	if (hamburgerBtn.classList.contains('is-active')) {
+		hamburgerBtn.classList.remove('hamburger--white-color-on-dark-background')
+	} 
 }
 // achievements
 
@@ -372,3 +403,6 @@ if (btnNewsletterForm !== null) {
 
 document.addEventListener('DOMContentLoaded', checkAtWhichSectionYouAre)
 document.addEventListener('scroll', checkAtWhichSectionYouAre)
+if (mediaQueryNarrowerThan992px.matches) {
+	document.addEventListener('scroll', changeColorOfHamburgerBtn)
+}

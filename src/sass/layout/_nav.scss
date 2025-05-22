@@ -67,29 +67,6 @@
 	}
 }
 
-.hamburger {
-	position: fixed;
-	top: 2em;
-	right: 2em;
-	z-index: 15;
-}
-
-.hamburger-inner,
-.hamburger-iner::after,
-.hamburger-iner::before {
-	border: transparent;
-	transition: background-color 0.3s, border 0.3s;
-}
-
-.hamburger--white-color-on-dark-background {
-	.hamburger-inner,
-	.hamburger-iner::after,
-	.hamburger-iner::before {
-		background-color: $background-light-color !important;
-		border: 0.1em solid $background-dark-color;
-	}
-}
-
 @media (min-width: 576px) {
 	.nav {
 		width: clamp(25em, 70vw, 45em);
